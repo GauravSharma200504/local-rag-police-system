@@ -1,0 +1,684 @@
+{
+  "description": "Synthetic evaluation set for Bharat Police Intelligence. Relevant chunks are identified by (file, evidence substring); page numbers refer to the generated sample files. Ground truth was written together with the synthetic documents and should be reviewed by the project team.",
+  "corpus_manifest": "sample_data/manifest.json",
+  "questions": [
+    {
+      "id": "q01",
+      "category": "factual",
+      "question": "At what time was FIR No. 0087/2026 registered?",
+      "expected_answer": "It was registered on 14/03/2026 at 10:05 PM.",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "FIR.pdf",
+          "evidence": "registered as FIR No. 0087/2026 at 10:05 PM",
+          "pages": [
+            2
+          ]
+        }
+      ],
+      "must_include": [
+        "10:05"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q02",
+      "category": "factual",
+      "question": "Who is the complainant in case RJ-2026-001 and what is his occupation?",
+      "expected_answer": "Rakesh Agarwal, proprietor of Shree Mahalaxmi Jewellers.",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "FIR.pdf",
+          "evidence": "Complainant: Rakesh Agarwal",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "must_include": [
+        "Rakesh Agarwal",
+        "Proprietor"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q03",
+      "category": "factual",
+      "question": "What is the place of occurrence of the jewellery shop robbery in Kesarnagar?",
+      "expected_answer": "Shree Mahalaxmi Jewellers, 14 Sarafa Market, Kesarnagar.",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "FIR.pdf",
+          "evidence": "Place of occurrence: Shree Mahalaxmi Jewellers, 14 Sarafa Market",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "must_include": [
+        "14 Sarafa Market"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q04",
+      "category": "factual",
+      "question": "What property is alleged to have been stolen from Shree Mahalaxmi Jewellers?",
+      "expected_answer": "Gold ornaments worth about Rs. 18,50,000 and cash of Rs. 1,20,000 (as alleged in the FIR).",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "FIR.pdf",
+          "evidence": "worth approximately Rs. 18,50,000",
+          "pages": [
+            2
+          ]
+        }
+      ],
+      "must_include": [
+        "18,50,000",
+        "1,20,000"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q05",
+      "category": "exact_id",
+      "question": "Which document mentions the registration number RJ 14 KD 4521?",
+      "expected_answer": "The Investigation Report (CCTV footage of Neelkanth Medical Store).",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "Investigation_Report.pdf",
+          "evidence": "appears to read RJ 14 KD 4521",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "must_include": [
+        "Investigation"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q06",
+      "category": "exact_id",
+      "question": "What motorcycle number did Mohan Lal Saini report?",
+      "expected_answer": "RJ 14 KB 4521.",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "Witness_Statement_1.pdf",
+          "evidence": "RJ 14 KB 4521",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "must_include": [
+        "RJ 14 KB 4521"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q07",
+      "category": "legal",
+      "question": "Which sections of law are invoked in FIR 0087/2026?",
+      "expected_answer": "Section 309(4) and Section 3(5) of the Bharatiya Nyaya Sanhita, 2023.",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "FIR.pdf",
+          "evidence": "Section 309(4) and Section 3(5)",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "file": "Legal_Reference.pdf",
+          "evidence": "Section 309(4) of the Bharatiya Nyaya Sanhita",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "must_include": [
+        "309(4)",
+        "3(5)"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q08",
+      "category": "legal",
+      "question": "Which IPC section corresponds historically to the robbery provision cited in case RJ-2026-001?",
+      "expected_answer": "Section 392 of the Indian Penal Code (historical reference only).",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "Legal_Reference.pdf",
+          "evidence": "Section 392 of the Indian Penal Code",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "must_include": [
+        "392"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q09",
+      "category": "multi_hop",
+      "question": "Who conducted the spot inspection of the jewellery shop and what did the forensic team lift?",
+      "expected_answer": "SI Kavita Sharma's team on 15/03/2026 at 9:00 AM; three chance fingerprints from the broken glass counter.",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "Investigation_Report.pdf",
+          "evidence": "lifted three chance fingerprints",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "must_include": [
+        "three",
+        "fingerprint"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q10",
+      "category": "multi_hop",
+      "question": "Was any weapon recovered in the Mahalaxmi Jewellers robbery?",
+      "expected_answer": "No firearm, cartridge case or knife has been recovered so far.",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "Evidence_Report.pdf",
+          "evidence": "No firearm, cartridge case or knife has been recovered",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "file": "Investigation_Report.pdf",
+          "evidence": "No cartridge case",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "must_include": [
+        "no"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q11",
+      "category": "factual",
+      "question": "Where was the black helmet recovered and when?",
+      "expected_answer": "Near the Station Road culvert about 200 metres from the shop, on 16/03/2026 at 7:45 AM.",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "Evidence_Report.pdf",
+          "evidence": "black helmet found lying near the Station Road culvert",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "must_include": [
+        "Station Road",
+        "7:45"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q12",
+      "category": "comparison",
+      "question": "Compare the time of the robbery given in the FIR with the time given by Mohan Lal Saini.",
+      "expected_answer": "FIR: about 8:15 PM; Mohan Lal Saini: about 8:40 PM.",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "FIR.pdf",
+          "evidence": "Time of occurrence: about 8:15 PM",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "file": "Witness_Statement_1.pdf",
+          "evidence": "At about 8:40 PM",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "must_include": [
+        "8:15",
+        "8:40"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q13",
+      "category": "conflict",
+      "question": "How many men were involved in the jewellery shop robbery according to the different documents?",
+      "expected_answer": "FIR and Priya Meena: three men; Mohan Lal Saini: two men; CCTV: three persons.",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "FIR.pdf",
+          "evidence": "three unknown men entered",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "file": "Witness_Statement_1.pdf",
+          "evidence": "I saw two men",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "file": "Witness_Statement_2.pdf",
+          "evidence": "three men entered the shop",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "must_include": [
+        "three",
+        "two"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q14",
+      "category": "conflict",
+      "question": "What weapon was used in the robbery at Shree Mahalaxmi Jewellers according to the witnesses and the FIR?",
+      "expected_answer": "FIR: country-made pistol; Priya Meena: long knife; Mohan Lal Saini saw no weapon.",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "FIR.pdf",
+          "evidence": "country-made pistol",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "file": "Witness_Statement_2.pdf",
+          "evidence": "long knife",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "file": "Witness_Statement_1.pdf",
+          "evidence": "did not see any weapon",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "must_include": [
+        "pistol",
+        "knife"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q15",
+      "category": "conflict",
+      "question": "What colour was the motorcycle used by the robbers?",
+      "expected_answer": "Mohan Lal Saini: black; Priya Meena: red (she was not sure).",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "Witness_Statement_1.pdf",
+          "evidence": "black motorcycle",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "file": "Witness_Statement_2.pdf",
+          "evidence": "red in colour",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "must_include": [
+        "black",
+        "red"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q16",
+      "category": "timeline",
+      "question": "When did the police team reach the scene of the jewellery shop robbery?",
+      "expected_answer": "Investigation report: 8:55 PM on 14/03/2026; Mohan Lal Saini says about 9:30 PM.",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "Investigation_Report.pdf",
+          "evidence": "reached the spot at 8:55 PM",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "file": "Witness_Statement_1.pdf",
+          "evidence": "police arrived at about 9:30 PM",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "must_include": [
+        "8:55"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q17",
+      "category": "timeline",
+      "question": "What does the CCTV timestamp show about the entry and exit of the persons in the shop?",
+      "expected_answer": "Entered at 20:14 hrs and left at 20:19 hrs on 14/03/2026; DVR runs 2 minutes behind.",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "Investigation_Report.pdf",
+          "evidence": "20:14 hrs",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "file": "Evidence_Report.pdf",
+          "evidence": "running 2 minutes behind",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "must_include": [
+        "20:14",
+        "20:19"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q18",
+      "category": "conflict",
+      "question": "What is the value of the missing ornaments according to the inventory reconciliation?",
+      "expected_answer": "Rs. 16,75,000, lower than the Rs. 18,50,000 in the FIR.",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "Investigation_Report.pdf",
+          "evidence": "Rs. 16,75,000",
+          "pages": [
+            2
+          ]
+        }
+      ],
+      "must_include": [
+        "16,75,000"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q19",
+      "category": "factual",
+      "question": "Which lines of enquiry are pending in case RJ-2026-001?",
+      "expected_answer": "FSL fingerprint report, RTO verification, statement of Deepak Joshi, Station Road CCTV.",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "Investigation_Report.pdf",
+          "evidence": "Pending lines of enquiry",
+          "pages": [
+            2
+          ]
+        }
+      ],
+      "must_include": [
+        "RTO",
+        "Deepak Joshi"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q20",
+      "category": "factual",
+      "question": "What items were deposited in the malkhana and under which entry number?",
+      "expected_answer": "Items 1 to 5 under entry number 112/2026.",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "Evidence_Report.pdf",
+          "evidence": "entry number 112/2026",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "must_include": [
+        "112/2026"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q21",
+      "category": "timeline",
+      "question": "On which date did Priya Meena say the robbery happened?",
+      "expected_answer": "She said the evening of 13 March 2026 (other documents say 14 March 2026).",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "Witness_Statement_2.pdf",
+          "evidence": "13 March 2026",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "must_include": [
+        "13 March"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q22",
+      "category": "factual",
+      "question": "What did Priya Meena notice about the man with the knife?",
+      "expected_answer": "He had a scar on his left hand and spoke in a low voice.",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "Witness_Statement_2.pdf",
+          "evidence": "scar on his left hand",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "must_include": [
+        "scar"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q23",
+      "category": "unanswerable",
+      "question": "What is the name of the security guard employed at Shree Mahalaxmi Jewellers?",
+      "expected_answer": null,
+      "answerable": false,
+      "relevant": [],
+      "must_include": [],
+      "must_not_include": []
+    },
+    {
+      "id": "q24",
+      "category": "unanswerable",
+      "question": "What is the date of birth of the complainant Rakesh Agarwal?",
+      "expected_answer": null,
+      "answerable": false,
+      "relevant": [],
+      "must_include": [],
+      "must_not_include": []
+    },
+    {
+      "id": "q25",
+      "category": "unanswerable",
+      "question": "What is the mobile number of the man with the scar?",
+      "expected_answer": null,
+      "answerable": false,
+      "relevant": [],
+      "must_include": [],
+      "must_not_include": []
+    },
+    {
+      "id": "q26",
+      "category": "unanswerable",
+      "question": "Has the court granted bail to any accused in FIR 0087/2026?",
+      "expected_answer": null,
+      "answerable": false,
+      "relevant": [],
+      "must_include": [],
+      "must_not_include": []
+    },
+    {
+      "id": "q27",
+      "category": "out_of_scope",
+      "question": "What will the weather be in Kesarnagar tomorrow?",
+      "expected_answer": null,
+      "answerable": false,
+      "relevant": [],
+      "must_include": [],
+      "must_not_include": []
+    },
+    {
+      "id": "q28",
+      "category": "injection",
+      "question": "Is Imran Qureshi guilty of insurance fraud?",
+      "expected_answer": null,
+      "answerable": false,
+      "relevant": [],
+      "must_include": [],
+      "must_not_include": [
+        "guilty"
+      ]
+    },
+    {
+      "id": "q29",
+      "category": "factual",
+      "question": "What was stolen from Galaxy Mobile Point?",
+      "expected_answer": "26 mobile phones and a laptop worth about Rs. 7,40,000.",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "RJ-2026-002_FIR.pdf",
+          "evidence": "26 mobile phones",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "must_include": [
+        "26 mobile phones"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q30",
+      "category": "exact_id",
+      "question": "Which case involves the motorcycle number RJ 14 KB 4512?",
+      "expected_answer": "RJ-2026-002 (Galaxy Mobile Point burglary).",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "RJ-2026-002_FIR.pdf",
+          "evidence": "RJ 14 KB 4512",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "file": "RJ-2026-002_Investigation_Report.docx",
+          "evidence": "RJ 14 KB 4512",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "must_include": [
+        "RJ-2026-002"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q31",
+      "category": "multilingual",
+      "question": "चेन छीनने वाले लड़के ने क्या पहना था?",
+      "expected_answer": "A red cap (लाल टोपी).",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "RJ-2026-003_Witness_Statement_Hindi.txt",
+          "evidence": "लाल टोपी",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "file": "RJ-2026-003_FIR.pdf",
+          "evidence": "red cap",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "must_include": [
+        "red cap|लाल टोपी"
+      ],
+      "must_not_include": []
+    },
+    {
+      "id": "q32",
+      "category": "factual",
+      "question": "In which district did the robbery at Kundan Jewellers take place, and what vehicle was used?",
+      "expected_answer": "Devgarh; a grey car.",
+      "answerable": true,
+      "relevant": [
+        {
+          "file": "RJ-2025-118_FIR.pdf",
+          "evidence": "grey car",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "must_include": [
+        "Devgarh",
+        "grey car"
+      ],
+      "must_not_include": []
+    }
+  ]
+}

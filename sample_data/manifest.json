@@ -1,0 +1,106 @@
+{
+  "cases": [
+    {
+      "case_number": "RJ-2026-001",
+      "title": "Jewellery Shop Robbery",
+      "police_station": "Hawa Chowk",
+      "district": "Kesarnagar",
+      "analyst_access": true,
+      "owner": "io",
+      "description": "Robbery at Shree Mahalaxmi Jewellers, Sarafa Market, on 14 March 2026 (fictional demonstration case).",
+      "documents": [
+        {
+          "file": "RJ-2026-001/FIR.pdf",
+          "doc_type": "FIR"
+        },
+        {
+          "file": "RJ-2026-001/Witness_Statement_1.pdf",
+          "doc_type": "Witness Statement"
+        },
+        {
+          "file": "RJ-2026-001/Witness_Statement_2.pdf",
+          "doc_type": "Witness Statement"
+        },
+        {
+          "file": "RJ-2026-001/Investigation_Report.pdf",
+          "doc_type": "Investigation Report"
+        },
+        {
+          "file": "RJ-2026-001/Evidence_Report.pdf",
+          "doc_type": "Evidence Report"
+        },
+        {
+          "file": "RJ-2026-001/Legal_Reference.pdf",
+          "doc_type": "Legal Document",
+          "legal": {
+            "act_name": "Case legal reference note (RJ-2026-001)",
+            "short_name": "NOTE",
+            "year": 2026,
+            "version": "Case note v1",
+            "is_official_text": false,
+            "publication": "Synthetic case note - not an official publication",
+            "verified_by": null,
+            "is_historical": false
+          }
+        }
+      ]
+    },
+    {
+      "case_number": "RJ-2026-002",
+      "title": "Mobile Shop Burglary",
+      "police_station": "Hawa Chowk",
+      "district": "Kesarnagar",
+      "analyst_access": false,
+      "owner": "io",
+      "description": "Night burglary at a mobile phone shop on Station Road (fictional distractor case).",
+      "documents": [
+        {
+          "file": "distractors/RJ-2026-002_FIR.pdf",
+          "doc_type": "FIR"
+        },
+        {
+          "file": "distractors/RJ-2026-002_Investigation_Report.docx",
+          "doc_type": "Investigation Report"
+        }
+      ]
+    },
+    {
+      "case_number": "RJ-2026-003",
+      "title": "Chain Snatching near Sarafa Market",
+      "police_station": "Hawa Chowk",
+      "district": "Kesarnagar",
+      "analyst_access": false,
+      "owner": "io",
+      "description": "Snatching of a gold chain (fictional distractor case, includes a Hindi witness statement).",
+      "documents": [
+        {
+          "file": "distractors/RJ-2026-003_FIR.pdf",
+          "doc_type": "FIR"
+        },
+        {
+          "file": "distractors/RJ-2026-003_Witness_Statement_Hindi.txt",
+          "doc_type": "Witness Statement"
+        }
+      ]
+    },
+    {
+      "case_number": "RJ-2025-118",
+      "title": "Jewellery Shop Robbery, Devgarh",
+      "police_station": "Devgarh City",
+      "district": "Devgarh",
+      "analyst_access": false,
+      "owner": "admin",
+      "description": "Earlier, similar robbery in another district (fictional hard-negative case).",
+      "documents": [
+        {
+          "file": "distractors/RJ-2025-118_FIR.pdf",
+          "doc_type": "FIR"
+        },
+        {
+          "file": "distractors/RJ-2025-118_Investigation_Report.pdf",
+          "doc_type": "Investigation Report"
+        }
+      ]
+    }
+  ]
+}

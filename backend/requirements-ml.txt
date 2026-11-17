@@ -1,0 +1,6 @@
+# Local embedding + cross-encoder models (Sentence Transformers).
+# CPU-only PyTorch keeps the install small (~200 MB instead of ~2.5 GB):
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+#   pip install -r requirements-ml.txt
+# For an NVIDIA GPU install the CUDA build of torch instead and set EMBEDDING_DEVICE=cuda.
+sentence-transformers>=3.0

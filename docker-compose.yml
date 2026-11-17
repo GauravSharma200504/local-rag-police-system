@@ -1,0 +1,59 @@
+# PostgreSQL + pgvector and the FastAPI backend.
+# Ollama runs natively on the host by default (best hardware support on Windows/macOS);
+# `docker compose --profile ollama up` starts it as a container instead.
+# The React frontend runs natively (`npm run dev`) or with `--profile frontend`.
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-bpi}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-bpi_password}
+      POSTGRES_DB: ${POSTGRES_DB:-bpi}
+    ports: ["127.0.0.1:5432:5432"]
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-bpi} -d ${POSTGRES_DB:-bpi}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  backend:
+    build: { context: ., dockerfile: backend/Dockerfile }
+    restart: unless-stopped
+    depends_on: { db: { condition: service_healthy } }
+    env_file: [.env]
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-bpi}:${POSTGRES_PASSWORD:-bpi_password}@db:5432/${POSTGRES_DB:-bpi}
+      DATA_DIR: /app/data
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL_DOCKER:-http://host.docker.internal:11434}
+      CORS_ORIGINS: http://localhost:5173,http://127.0.0.1:5173
+    extra_hosts: ["host.docker.internal:host-gateway"]
+    ports: ["127.0.0.1:8000:8000"]
+    volumes:
+      - appdata:/app/data          # uploaded originals, OCR word boxes
+      - hfmodels:/models/hf        # embedding + reranker model cache (offline after first download)
+      - ./evaluation/results:/app/evaluation/results
+
+  ollama:
+    profiles: ["ollama"]
+    image: ollama/ollama:latest
+    restart: unless-stopped
+    ports: ["127.0.0.1:11434:11434"]
+    volumes: ["ollama:/root/.ollama"]
+
+  frontend:
+    profiles: ["frontend"]
+    image: node:20-alpine
+    working_dir: /app
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    environment: { VITE_BACKEND_URL: "http://backend:8000" }
+    ports: ["127.0.0.1:5173:5173"]
+    volumes: ["./frontend:/app", "/app/node_modules"]
+    depends_on: [backend]
+
+volumes:
+  pgdata:
+  appdata:
+  hfmodels:
+  ollama:
